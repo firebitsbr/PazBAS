@@ -8,8 +8,3 @@
 8 INTERVAL OFF:LOCATE10,15:PRINT KR$:C%=0:FOR I%=0TO15:if S$(I%)=KR$THEN C%=C%+1
 9 NEXT::LOCATE12,15:PRINT C%:IF C%=T%then P%=P%+TM%:GOTO2:else P%=P%-TM%:goto2
 10 IF TM%=0 THEN RETURN: ELSE TM%=TM%-1:LOCATE 28,0:PRINT TM%"SECS":RETURN
-
-
-100 SET BEEP 2,3 : BEEP : goto 20
-
-120 for I%=1 to 10: set scroll RND(1)*10, RND(1)*10: next : set scroll 0, 0 : goto 20
