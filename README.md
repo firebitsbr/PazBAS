@@ -1,5 +1,18 @@
 # PazBAS
 PazBAS is a simple mnemonic puzzle game in 10 lines of BASIC MSX.
+
+# Game Logic
+Player must find the character that repeats X times in the matrix.
+
+Above the letters matrix there is the hint message for the character to guess:
+- 1X: indicates a character that appears once
+- 2X: indicates a character that appears twice
+- 3X: indicates a character that appears three times
+
+The time is limited to 10 seconds, a new matrix is presented when it expires.
+
+If you guess the character the remaining time is added to the score otherwise subtracted.
+
 Sources are stored at: https://github.com/robertocapuano/PazBAS
 
 # Installation
@@ -14,20 +27,7 @@ load "a:paz.bas"
 run
 ```
 
-# Game Logic
-Player must find the letter that repeats X times in the matrix.
-
-Above the letters matrix there is the hint message for the character to guess:
-- 1X: indicates a character that appears once
-- 2X: indicates a character that appears twice
-- 3X: indicates a character that appears three times
-
-The time is limited to 10 seconds, a new matrix is presented when it expires.
-
-If you guess the character the remaining time is added to the score otherwise subtracted.
-
 # Source Description
-
 
 ```
 1 P%=0:DIM S$(16):R=RND(-TIME):TM%=0:KEY OFF:ON INTERVAL=50 GOSUB 10
