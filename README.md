@@ -17,14 +17,14 @@ run
 # Game Logic
 Player must find the letter that repeats X times in the matrix.
 
-The message indicating the letter to find appears above the matrix:
-- 1X: indicates a letter that appears once
-- 2X: indicates a letter that appears twice
-- 3X: indicates a letter that appears three times
+Above the letters matrix there is the hint message for the character to guess:
+- 1X: indicates a character that appears once
+- 2X: indicates a character that appears twice
+- 3X: indicates a character that appears three times
 
 The time is limited to 10 seconds, a new matrix is presented when it expires.
 
-If you guess the letter the remaining time is added to the score, otherwise subtracted.
+If you guess the character the remaining time is added to the score otherwise subtracted.
 
 # Source Description
 
@@ -51,14 +51,14 @@ If you guess the letter the remaining time is added to the score, otherwise subt
 3 FOR I%=0 TO 15:R=RND(1):S$(I%) = CHR$(97+R*(N-M)+M): NEXT I%:K%=0
 ```
 - generate random matrix and store it into the array S$()
-- the random matrix doesn't contains the choosen letter
+- the random matrix doesn't contains the choosen character
 
 
 ```
 4 A$=CHR$(97+L):T%=RND(1)*3+1:FOR I%=0 TO T%-1:K%=K%+RND(1)*4+1:S$(K%)=A$:NEXT
 ```
-- A$ contains the letter to guess
-- T% contains the number that letter must to appaer
+- A$ contains the character to guess
+- T% contains the number of times that character must appaer
 - For T% times, at random position, A$ is is inserted into the matrix 
 
 
@@ -67,13 +67,14 @@ If you guess the letter the remaining time is added to the score, otherwise subt
 ```
 - Random Matrix is printed on the screen.
 
+
 ```
 6 NEXT J%:NEXT I%:LOCATE16,5:PRINT T%"X":TM%=10:INTERVAL ON: rem PRINT A$
 ```
 - Hint is shown
-- Time is resetted to 10 seconds.
+- Time TM% is resetted to 10 seconds.
 - event callback is turned on
-- in case of debug a commented print is present to show the letter to guess
+- in case of debug a commented print is present to show the character to guess
 
 
 ```
@@ -88,7 +89,7 @@ If you guess the letter the remaining time is added to the score, otherwise subt
 8 INTERVAL STOP:LOCATE10,15:PRINT A$:C%=0:FORI%=0TO15:if S$(I%)=KR$THENC%=C%+1
 ```
 - event interval callback is turned off to avoid interference with the print
-- character to guess is shown
+- the character to guess is shown
 - is computed the number of times that KR$ appaers into the matrix: it could be
 different from A$ but be a valid solution.
 
