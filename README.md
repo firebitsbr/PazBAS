@@ -1,5 +1,6 @@
 # PazBAS
 PazBAS is a simple mnemonic puzzle game in 10 lines of BASIC MSX.
+Sources are stored at: https://github.com/robertocapuano/PazBAS
 
 # Installation
 Game was developed on MSX2 emulator at https://webmsx.org/
