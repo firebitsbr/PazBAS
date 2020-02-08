@@ -3,9 +3,9 @@ PazBAS is a simple mnemonic puzzle game in 10 lines of BASIC MSX.
 Sources are stored at: https://github.com/robertocapuano/PazBAS
 
 # Installation
-Game was developed on MSX2 emulator at https://webmsx.org/
+Game was developed on a MSX2 emulator at https://webmsx.org/
 1. connect to https://webmsx.org/
-2. click on floppy icon below the screen
+2. click on the first floppy icon below the blue screen
 3. Select "Add Disk Images"
 4. Choose "paz.dsk"
 5. type in:
