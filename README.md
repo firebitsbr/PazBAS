@@ -1,6 +1,8 @@
 # PazBAS
 PazBAS is a simple mnemonic puzzle game in 10 lines of BASIC MSX.
 
+![screenshot][screenshot.png]
+
 # Game Logic
 Player must find the character that repeats X times in the matrix.
 
