@@ -32,16 +32,15 @@ run
 # Source Description
 
 ```
-1 P%=0:DIM S$(16):R=RND(-TIME):TM%=0:KEY OFF:ON INTERVAL=50 GOSUB 10
+1 screen0:DIMS$(16):R=RND(-TIME):E=0:KEYOFF:ONINTERVAL=50GOSUB10
 ```
-- initialize P% (player points) to zero
 - initialize Random Number Generator
-- initialize TM% (timer) to zero
+- initialize E (timer) to zero
 - start the timer call-back subroutine
 
 
 ```
-2 CLS:PRINT P%"PTS":R=RND(1):L=25*R:IF R>(1-R) THEN M=0:N=L-1:ELSE M=L+1:N=25
+2 CLS:?P"PTS":R=RND(1):L=25*R:IF R>(1-R) THEN M=0:N=L-1:ELSE M=L+1:N=25
 ```
 - clear screen
 - print points
@@ -50,60 +49,58 @@ run
 
 
 ```
-3 FOR I%=0 TO 15:R=RND(1):S$(I%) = CHR$(97+R*(N-M)+M): NEXT I%:K%=0
+3 FORI=0TO15:R=RND(1):S$(I)=CHR$(97+R*(N-M)+M):NEXTI:A$=CHR$(97+L):T%=RND(1)*3+1
 ```
 - generate random matrix and store it into the array S$()
 - the random matrix doesn't contains the choosen character
-
-
-```
-4 A$=CHR$(97+L):T%=RND(1)*3+1:FOR I%=0 TO T%-1:K%=K%+RND(1)*4+1:S$(K%)=A$:NEXT
-```
 - A$ contains the character to guess
 - T% contains the number of times that character must appaer
+
+```
+4 K%=0:FORI=0TOT%-1:K%=K%+RND(1)*4+1:S$(K%)=A$:NEXT:C=0:FORI=0TO3:FORJ=0TO3
+```
+
 - For T% times, at random position, A$ is is inserted into the matrix 
 
 
 ```
-5 FOR I%=0TO3:FOR J%=0 TO 3:LOCATE15+(I%*2),8+(J%*2): PRINT S$(I%*4+j%)
+5 LOCATE15+I*2,8+J*2:?S$(I*4+J):NEXTJ,I:LOCATE16,5:?T%"X":E=10:INTERVALON:
 ```
 - Random Matrix is printed on the screen.
-
-
-```
-6 NEXT J%:NEXT I%:LOCATE16,5:PRINT T%"X":TM%=10:INTERVAL ON: rem PRINT A$
-```
 - Hint is shown
-- Time TM% is resetted to 10 seconds.
+- Time E is resetted to 10 seconds.
+
+```
+6 K$=INKEY$:ifE=0then2:ELSEifK$<"a"orK$>"z"then6elseINTERVALOFF:locate19,16:?K$
+```
+
 - event callback is turned on
-- in case of debug a commented print is present to show the character to guess
-
-
-```
-7 KR$=INKEY$:if TM%=0 then 2:ELSE if KR$="" OR KR$<"a" OR KR$>"z" then 7
-```
 - a char is read from the keyboard
 - if time is over level is restarted
 - checks if the character pressed is valid
-
-
-```
-8 INTERVAL STOP:LOCATE10,15:PRINT A$:C%=0:FORI%=0TO15:if S$(I%)=KR$THENC%=C%+1
-```
 - event interval callback is turned off to avoid interference with the print
-- the character to guess is shown
-- is computed the number of times that KR$ appaers into the matrix: it could be
+
+```
+7 FORI=0TO15:ifS$(I)=K$THENC=C+1:next:elsenext
+```
+- compute the number of times that KR$ appaers into the matrix: it could be
 different from A$ but be a valid solution.
 
+
 ```
-9 NEXT:BEEP:IF C%=T%then P%=P%+TM%:GOTO2:else P%=P%-TM%:goto2
+8 FORI=0TO3:FORJ=0TO3:LOCATE15+I*2,8+J*2:K=I*4+J:ifS$(K)=K$then?K$:else?" "
+```
+- show on the matrix the character selected
+
+```
+9 NEXTJ,I:locate16,16:?C:forI=0to1000:next:IFC=T%thenP=P+E:GOTO2:elseP=P-E:goto2
 ```
 - if character pressed is present T% times into the matrix points P% is incremented, 
 else subtracted
 - in any case level is repeated
 
 ```
-10 IF TM%=0 THEN RETURN:ELSE TM%=TM%-1:LOCATE 28,0:PRINT TM%"SECS":RETURN
+10 IF E=0 THEN RETURN:ELSE E=E-1:LOCATE28,0:? E"SECS":RETURN
 ```
 - event callback: it decrease time and show it on the screen.
 
