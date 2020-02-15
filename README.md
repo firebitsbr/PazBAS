@@ -28,6 +28,14 @@ Game was developed on a MSX2 emulator at https://webmsx.org/
 load "a:paz.bas"
 run
 ```
+otherwise
+1. connect to https://webmsx.org/
+2. press ALT+B
+3. copy and paste source code
+5. type in:
+```
+run
+```
 
 # Source Description
 
