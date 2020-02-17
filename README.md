@@ -13,7 +13,7 @@ Above the letters matrix there is the hint message for the character to guess:
 
 The time is limited to 10 seconds, a new matrix is presented when it expires.
 
-If you guess the character the remaining time is added to the score otherwise zeroed.
+If you guess the character the remaining time is added to the score otherwise set to zero.
 
 Sources are stored at: https://github.com/robertocapuano/PazBAS
 
@@ -102,7 +102,7 @@ different from A$ but be a valid solution.
 9 locate0,22:?z$:k$=inkey$:ifK$=""then9:else:IFC=T%thenP=P+E:goto2:elseP=0:goto2
 ```
 - if character pressed is present T% times into the matrix points P% is incremented, 
-else zeroed
+else set to zero
 - in any case level is repeated
 
 ```
