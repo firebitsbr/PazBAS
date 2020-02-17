@@ -43,7 +43,7 @@ MSXPen link:
 # Source Description
 
 ```
-1 screen0:DIMS$(16):R=RND(-TIME):KEYOFF:Z$="ANY KEY":ONINTERVAL=50GOSUB10:goto9
+1 cls:?"PazBAS":DIMS$(16):Y=22:R=RND(-TIME):KEYOFF:ONINTERVAL=50GOSUB10:goto9
 ```
 
 - initialize Random Number Generator
@@ -75,7 +75,6 @@ MSXPen link:
 ```
 5 LOCATE15+I*2,8+J*2:?S$(I*4+J):NEXTJ,I:LOCATE16,5:?T%"X":E=10:INTERVALON:
 ```
-- Random Matrix is printed on the screen.
 - Hint is shown
 - Time E is resetted to 10 seconds.
 - event callback is turned on
@@ -102,7 +101,7 @@ different from A$ but be a valid solution.
 - show on the matrix the character selected
 
 ```
-9 locate0,22:?z$:k$=inkey$:ifK$=""then9:else:IFC=T%thenP=P+E:goto2:elseP=0:goto2
+9 locate0,Y:?"ANY KEY":ifinkey$=""then9:else:IFC=T%thenP=P+E:goto2:elseP=0:goto2
 ```
 - if character pressed is present T% times into the matrix points P% is incremented, 
 else set to zero
