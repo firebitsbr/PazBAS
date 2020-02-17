@@ -38,12 +38,12 @@ run
 ```
 
 MSXPen link:
-- https://msxpen.com/codes/-M0IDvLWsNtkn_8fEeLU
+- https://msxpen.com/codes/-M0IKIuIP9fh0kMtHOkm
 
 # Source Description
 
 ```
-1 cls:?"PazBAS":DIMS$(16):Y=22:R=RND(-TIME):KEYOFF:ONINTERVAL=50GOSUB10:goto9
+1 cls:?"Paz":DIMS$(16):X=16:Y=22:R=RND(-TIME):KEYOFF:ONINTERVAL=50GOSUB10:goto9
 ```
 
 - initialize Random Number Generator
@@ -101,7 +101,7 @@ different from A$ but be a valid solution.
 - show on the matrix the character selected
 
 ```
-9 locate0,Y:?"ANY KEY":ifinkey$=""then9:else:IFC=T%thenP=P+E:goto2:elseP=0:goto2
+9 locateX,Y:?"ANY KEY":ifinkey$=""then9:else:IFC=T%thenP=P+E:goto2:elseP=0:goto2
 ```
 - if character pressed is present T% times into the matrix points P% is incremented, 
 else set to zero
