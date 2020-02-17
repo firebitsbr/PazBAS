@@ -37,6 +37,9 @@ otherwise
 run
 ```
 
+MSXPen link:
+- https://msxpen.com/codes/-M0Hc-8toNnKZ00WRZr9
+
 # Source Description
 
 ```
