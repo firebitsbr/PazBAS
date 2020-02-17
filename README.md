@@ -38,7 +38,7 @@ run
 ```
 
 MSXPen link:
-- https://msxpen.com/codes/-M0Hc-8toNnKZ00WRZr9
+- https://msxpen.com/codes/-M0IDvLWsNtkn_8fEeLU
 
 # Source Description
 
