@@ -13,7 +13,7 @@ Above the letters matrix there is the hint message for the character to guess:
 
 The time is limited to 10 seconds, a new matrix is presented when it expires.
 
-If you guess the character the remaining time is added to the score otherwise subtracted.
+If you guess the character the remaining time is added to the score otherwise zeroed.
 
 Sources are stored at: https://github.com/robertocapuano/PazBAS
 
@@ -40,7 +40,7 @@ run
 # Source Description
 
 ```
-1 screen0:DIMS$(16):R=RND(-TIME):KEYOFF:E=0:Z=1000:ONINTERVAL=50GOSUB10:
+1 screen0:DIMS$(16):R=RND(-TIME):KEYOFF:Z$="ANY KEY":ONINTERVAL=50GOSUB10:goto9
 ```
 
 - initialize Random Number Generator
@@ -78,7 +78,7 @@ run
 - event callback is turned on
 
 ```
-6 ifP>HthenH=P:goto6:elseK$=INKEY$:ifE=0then2:ELSEifK$<"a"orK$>"z"then6
+6 ifP>HthenH=P:goto6:elseK$=INKEY$:ifE=0thenC=T%:goto9:ELSEifK$<"a"orK$>"z"then6
 ```
 
 - a char is read from the keyboard
@@ -86,7 +86,7 @@ run
 - checks if the character pressed is valid
 
 ```
-7 INTERVALOFF:locate19,16:?K$:FORI=0TO15:ifS$(I)=K$THENC=C+1:next:elsenext
+7 INTERVALOFF:FORI=0TO3:FORJ=0TO3:LOCATE15+I*2,8+J*2:K=I*4+J:ifS$(K)<>K$then?" "
 ```
 - event interval callback is turned off to avoid interference with the print
 - compute the number of times that KR$ appaers into the matrix: it could be
@@ -94,15 +94,15 @@ different from A$ but be a valid solution.
 
 
 ```
-8 FORI=0TO3:FORJ=0TO3:LOCATE15+I*2,8+J*2:K=I*4+J:ifS$(K)=K$then?K$:else?" "
+8 NEXTJ,i:FORI=0TO15:ifS$(I)=K$THENC=C+1:locate16,16:?C""K$:next:elsenext:
 ```
 - show on the matrix the character selected
 
 ```
-9 NEXTJ,i:locate16,16:?C:forI=0toZ:next:IFC<>T%thenP=P-E:goto2:elseP=P+E:goto2
+9 locate0,22:?z$:k$=inkey$:ifK$=""then9:else:IFC=T%thenP=P+E:goto2:elseP=0:goto2
 ```
 - if character pressed is present T% times into the matrix points P% is incremented, 
-else subtracted
+else zeroed
 - in any case level is repeated
 
 ```
