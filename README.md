@@ -38,12 +38,12 @@ run
 ```
 
 MSXPen link:
-- https://msxpen.com/codes/-M0IKIuIP9fh0kMtHOkm
+- https://msxpen.com/codes/-M0JMbabfTuD5w05QmZ7
 
 # Source Description
 
 ```
-1 cls:?"Paz":DIMS$(16):X=16:Y=22:R=RND(-TIME):KEYOFF:ONINTERVAL=50GOSUB10:goto9
+1 cls:?"PAZ":DIMS$(16):X=16:Y=22:R=RND(-TIME):KEYOFF:ONINTERVAL=50GOSUB10:goto9
 ```
 
 - initialize Random Number Generator
