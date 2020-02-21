@@ -37,6 +37,9 @@ otherwise
 run
 ```
 
+WebMSX Launch URL:
+- https://webmsx.org?MACHINE=MSX2P&DISK=https://github.com/robertocapuano/PazBAS/raw/master/paz.dsk&BASIC_RUN=paz.bas
+
 MSXPen link:
 - https://msxpen.com/codes/-M0JMbabfTuD5w05QmZ7
 
