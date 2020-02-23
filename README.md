@@ -41,7 +41,7 @@ WebMSX Launch URL:
 - https://webmsx.org?MACHINE=MSX2P&DISK=https://github.com/robertocapuano/PazBAS/raw/master/paz.dsk&BASIC_RUN=paz.bas
 
 MSXPen link:
-- https://msxpen.com/codes/-M0kgmypsFgQ2oSdFWQG
+- https://msxpen.com/codes/-M0mhCa2zgrc5Mo85MAy
 
 # Source Description
 
