@@ -46,7 +46,7 @@ MSXPen link:
 # Source Description
 
 ```
-1 cls:?"PAZ":DIMS$(16):X=16:Y=22:R=RND(-TIME):KEYOFF:ONINTERVAL=50GOSUB10:goto9
+1 cls:?tab(17)"PAZ":DIMS$(16):R=RND(-TIME):KEYOFF:ONINTERVAL=50GOSUB10:goto9
 ```
 
 - initialize Random Number Generator
@@ -54,7 +54,7 @@ MSXPen link:
 - start the timer callback subroutine
 
 ```
-2 CLS:?"PTS"P:R=RND(1):L=25*R:IFR>(1-R)THENM=0:N=L-1:ELSEM=L+1:N=25:
+2 CLS:?"PTS"P:R=RND(1):L=25*R:IFR>(1-R)THENM=0:N=L-1:ELSEM=L+1:N=25
 ```
 - clear screen
 - print points
@@ -99,12 +99,12 @@ different from A$ but be a valid solution.
 
 
 ```
-8 NEXTJ,i:FORI=0TO15:ifS$(I)=K$THENC=C+1:locate16,16:?C""K$:next:elsenext:
+8 NEXTJ,i:FORI=0TO15:ifS$(I)=K$THENC=C+1:locate16,16:?C""K$:next:elsenext
 ```
 - show on the matrix the character selected
 
 ```
-9 locateX,Y:?"ANY KEY":ifinkey$=""then9:else:IFC=T%thenP=P+E:goto2:elseP=0:goto2
+9 locate15,22:?"ANY KEY";:k$=input$(1):IFC=T%thenP=P+E:goto2:elseP=P-E:goto2
 ```
 - if character pressed is present T% times into the matrix points P% is incremented, 
 else subtracted.
