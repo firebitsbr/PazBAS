@@ -13,7 +13,7 @@ Above the letters matrix there is the hint message for the character to guess:
 
 The time is limited to 10 seconds, a new matrix is presented when it expires.
 
-If you guess the character the remaining time is added to the score otherwise set to zero.
+If you guess the character the remaining time is added to the score otherwise subtracted.
 
 Sources are stored at: https://github.com/robertocapuano/PazBAS
 
@@ -41,7 +41,7 @@ WebMSX Launch URL:
 - https://webmsx.org?MACHINE=MSX2P&DISK=https://github.com/robertocapuano/PazBAS/raw/master/paz.dsk&BASIC_RUN=paz.bas
 
 MSXPen link:
-- https://msxpen.com/codes/-M0JMbabfTuD5w05QmZ7
+- https://msxpen.com/codes/-M0kgmypsFgQ2oSdFWQG
 
 # Source Description
 
@@ -107,7 +107,7 @@ different from A$ but be a valid solution.
 9 locateX,Y:?"ANY KEY":ifinkey$=""then9:else:IFC=T%thenP=P+E:goto2:elseP=0:goto2
 ```
 - if character pressed is present T% times into the matrix points P% is incremented, 
-else set to zero
+else subtracted.
 - in any case level is repeated
 
 ```

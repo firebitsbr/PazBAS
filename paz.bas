@@ -6,5 +6,5 @@
 6 ifP>HthenH=P:goto6:elseK$=INKEY$:ifE=0thenC=T%:goto9:ELSEifK$<"a"orK$>"z"then6
 7 INTERVALOFF:FORI=0TO3:FORJ=0TO3:LOCATE15+I*2,8+J*2:K=I*4+J:ifS$(K)<>K$then?" "
 8 NEXTJ,i:FORI=0TO15:ifS$(I)=K$THENC=C+1:locate16,16:?C""K$:next:elsenext
-9 locate15,22:?"ANY KEY";:k$=input$(1):IFC=T%thenP=P+E:goto2:elseP=0:goto2
+9 locate15,22:?"ANY KEY";:k$=input$(1):IFC=T%thenP=P+E:goto2:elseP=P-E:goto2
 10 IFE=0THENreturn:ELSE E=E-1:LOCATE15,0:?"HIGH"H:locate30,0:?E"SECS":RETURN
